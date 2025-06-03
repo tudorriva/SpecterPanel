@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stealth Panel</title>
+    <style>
+        /* Isolated styles for the stealth panel */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            padding: 16px;
+            min-width: 280px;
+            min-height: 200px;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #404040;
+            cursor: move;
+        }
+        
+        .panel-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4CAF50;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+        
+        .panel-controls {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .control-btn {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: #404040;
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .control-btn:hover {
+            background: #505050;
+        }
+        
+        .panel-content {
+            display: block;
+        }
+        
+        .panel-content.hidden {
+            display: none;
+        }
+        
+        .textarea {
+            width: 100%;
+            height: 120px;
+            background: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #505050;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            resize: vertical;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .textarea:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+        
+        .textarea::placeholder {
+            color: #888888;
+            font-style: italic;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        
+        .btn {
+            padding: 8px 14px;
+            background: #333333;
+            color: #ffffff;
+            border: 1px solid #505050;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            outline: none;
+            flex: 1;
+            min-width: 80px;
+        }
+        
+        .btn:hover {
+            background: #404040;
+            border-color: #606060;
+            transform: translateY(-1px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn.success {
+            background: #2e7d32;
+            border-color: #4caf50;
+        }
+        
+        .btn.success:hover {
+            background: #388e3c;
+        }
+        
+        .status {
+            font-size: 11px;
+            color: #888888;
+            min-height: 14px;
+            padding: 4px 0;
+            border-top: 1px solid #404040;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .info-section {
+            margin-top: 12px;
+            padding: 8px;
+            background: rgba(64, 64, 64, 0.3);
+            border-radius: 6px;
+            font-size: 11px;
+            color: #cccccc;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 4px;
+        }
+        
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-list li {
+            padding: 2px 0;
+        }
+        
+        .info-list li:before {
+            content: "• ";
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-header" id="panelHeader">
+        <div class="panel-title">🥷 Stealth Panel</div>
+        <div class="panel-controls">
+            <button class="control-btn" id="minimizeBtn" title="Minimize">−</button>
+            <button class="control-btn" id="closeBtn" title="Close">×</button>
+        </div>
+    </div>
+    
+    <div class="panel-content" id="panelContent">
+        <textarea 
+            class="textarea" 
+            id="mainTextarea" 
+            placeholder="Extracted content will appear here, or enter your own text..."></textarea>
+        
+        <div class="button-group">
+            <button class="btn" id="extractBtn">Extract Canvas</button>
+            <button class="btn" id="copyBtn">Copy Text</button>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn" id="sendBtn">Send to Backend</button>
+            <button class="btn" id="clearBtn">Clear</button>
+        </div>
+        
+        <div class="status" id="statusDisplay">Ready</div>
+        
+        <div class="info-section">
+            <div class="info-title">Panel Features</div>
+            <ul class="info-list">
+                <li>Canvas data extraction</li>
+                <li>OCR text processing</li>
+                <li>Backend integration</li>
+                <li>Stealth operation</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="panel.js"></script>
+</body>
+</html>

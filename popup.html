@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stealth Injector</title>
+  <style>
+    body {
+      width: 300px;
+      min-height: 400px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: #ffffff;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #404040;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4CAF50;
+      margin: 0 0 8px 0;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      color: #888;
+      margin: 0;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    
+    .button {
+      width: 100%;
+      padding: 10px 16px;
+      background: #333333;
+      color: #ffffff;
+      border: 1px solid #505050;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      transition: all 0.2s;
+    }
+    
+    .button:hover {
+      background: #404040;
+      border-color: #606060;
+    }
+    
+    .button.primary {
+      background: #2e7d32;
+      border-color: #4caf50;
+    }
+    
+    .button.primary:hover {
+      background: #388e3c;
+      border-color: #66bb6a;
+    }
+    
+    .status {
+      padding: 8px 12px;
+      background: #1e1e1e;
+      border: 1px solid #505050;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #888;
+      min-height: 40px;
+      margin-bottom: 12px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .feature-list li {
+      padding: 4px 0;
+      font-size: 12px;
+      color: #ccc;
+    }
+    
+    .feature-list li:before {
+      content: "✓ ";
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    
+    .input-group {
+      margin-bottom: 12px;
+    }
+    
+    .input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      background: #1e1e1e;
+      color: #ffffff;
+      border: 1px solid #505050;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: monospace;
+    }
+    
+    .input::placeholder {
+      color: #666;
+    }
+    
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+    
+    .switch {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      background: #333;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .switch.active {
+      background: #4CAF50;
+    }
+    
+    .switch:before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.2s;
+    }
+    
+    .switch.active:before {
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="title">🥷 Stealth Injector</h1>
+    <p class="subtitle">Bypass CSP & inject UI anywhere</p>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Control Panel</div>
+    <button class="button primary" id="injectBtn">Inject Panel</button>
+    <button class="button" id="extractBtn">Extract Canvas Data</button>
+    <button class="button" id="toggleBtn">Toggle Panel</button>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Backend Connection</div>
+    <div class="input-group">
+      <input type="text" class="input" id="backendUrl" placeholder="http://localhost:8000" value="http://localhost:8000">
+    </div>
+    <button class="button" id="testConnectionBtn">Test Connection</button>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Settings</div>
+    <div class="toggle">
+      <span>Auto-inject on all pages</span>
+      <div class="switch active" id="autoInjectToggle"></div>
+    </div>
+    <div class="toggle">
+      <span>Stealth mode</span>
+      <div class="switch active" id="stealthModeToggle"></div>
+    </div>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Status</div>
+    <div class="status" id="statusDisplay">Extension loaded. Ready to inject.</div>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Features</div>
+    <ul class="feature-list">
+      <li>Shadow DOM isolation</li>
+      <li>CSP bypass techniques</li>
+      <li>Canvas data extraction</li>
+      <li>No focus stealing</li>
+      <li>Works in all frames</li>
+      <li>Local backend integration</li>
+    </ul>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

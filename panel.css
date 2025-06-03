@@ -1,0 +1,259 @@
+/* CSS for stealth panel - this will be injected with high specificity */
+
+/* Reset and isolation for our elements */
+#stealth-shadow-root,
+#stealth-shadow-root * {
+  all: initial !important;
+  box-sizing: border-box !important;
+}
+
+/* Fallback panel styles for when shadow DOM fails */
+#stealth-fallback-panel {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 250px !important;
+  min-height: 60px !important;
+  max-height: 400px !important;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #404040 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+  backdrop-filter: blur(10px) !important;
+  user-select: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  resize: both !important;
+  overflow: auto !important;
+}
+
+#stealth-fallback-panel:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15) inset !important;
+}
+
+/* Header styles for fallback */
+#stealth-fallback-panel .stealth-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.8) !important;
+  cursor: grab !important;
+}
+
+#stealth-fallback-panel .stealth-header:active {
+  cursor: grabbing !important;
+}
+
+#stealth-fallback-panel .stealth-title {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #4CAF50 !important;
+  margin: 0 !important;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.3) !important;
+}
+
+/* Control buttons */
+#stealth-fallback-panel .stealth-controls {
+  display: flex !important;
+  gap: 6px !important;
+}
+
+#stealth-fallback-panel .stealth-control-btn {
+  width: 20px !important;
+  height: 20px !important;
+  border: none !important;
+  background: rgba(64, 64, 64, 0.8) !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+#stealth-fallback-panel .stealth-control-btn:hover {
+  background: rgba(80, 80, 80, 0.9) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Content area */
+#stealth-fallback-panel .stealth-content {
+  display: block !important;
+  opacity: 1 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+#stealth-fallback-panel .stealth-content.minimized {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Textarea styles */
+#stealth-fallback-panel .stealth-textarea,
+#stealth-fallback-panel textarea {
+  width: calc(100% - 4px) !important;
+  height: 80px !important;
+  background: rgba(30, 30, 30, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(80, 80, 80, 0.6) !important;
+  border-radius: 6px !important;
+  padding: 8px !important;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace !important;
+  font-size: 11px !important;
+  resize: vertical !important;
+  outline: none !important;
+  margin-bottom: 10px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+#stealth-fallback-panel .stealth-textarea:focus,
+#stealth-fallback-panel textarea:focus {
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+}
+
+#stealth-fallback-panel .stealth-textarea::placeholder,
+#stealth-fallback-panel textarea::placeholder {
+  color: rgba(136, 136, 136, 0.8) !important;
+  font-style: italic !important;
+}
+
+/* Button group */
+#stealth-fallback-panel .stealth-button-group {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 8px !important;
+}
+
+/* Individual buttons */
+#stealth-fallback-panel .stealth-btn,
+#stealth-fallback-panel button {
+  padding: 5px 10px !important;
+  background: rgba(51, 51, 51, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(80, 80, 80, 0.6) !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  font-family: inherit !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  white-space: nowrap !important;
+}
+
+#stealth-fallback-panel .stealth-btn:hover,
+#stealth-fallback-panel button:hover {
+  background: rgba(64, 64, 64, 0.9) !important;
+  border-color: rgba(96, 96, 96, 0.8) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+#stealth-fallback-panel .stealth-btn:active,
+#stealth-fallback-panel button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+#stealth-fallback-panel .stealth-btn.success,
+#stealth-fallback-panel button.success {
+  background: rgba(46, 125, 50, 0.9) !important;
+  border-color: rgba(76, 175, 80, 0.8) !important;
+  color: #ffffff !important;
+}
+
+#stealth-fallback-panel .stealth-btn.success:hover,
+#stealth-fallback-panel button.success:hover {
+  background: rgba(56, 142, 60, 0.9) !important;
+  border-color: rgba(102, 187, 106, 0.8) !important;
+}
+
+/* Status line */
+#stealth-fallback-panel .stealth-status {
+  font-size: 10px !important;
+  color: rgba(136, 136, 136, 0.9) !important;
+  margin-top: 6px !important;
+  min-height: 12px !important;
+  font-style: italic !important;
+  border-top: 1px solid rgba(64, 64, 64, 0.4) !important;
+  padding-top: 6px !important;
+}
+
+/* Animation for panel appearance */
+@keyframes stealthSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+#stealth-fallback-panel {
+  animation: stealthSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  #stealth-fallback-panel {
+    width: calc(100vw - 40px) !important;
+    max-width: 300px !important;
+    right: 20px !important;
+    left: auto !important;
+  }
+}
+
+@media (max-height: 600px) {
+  #stealth-fallback-panel {
+    max-height: 300px !important;
+    top: 10px !important;
+  }
+}
+
+/* Hide panel when printing */
+@media print {
+  #stealth-fallback-panel,
+  #stealth-shadow-root {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #stealth-fallback-panel {
+    border: 2px solid #ffffff !important;
+    background: #000000 !important;
+  }
+  
+  #stealth-fallback-panel .stealth-btn,
+  #stealth-fallback-panel button {
+    border: 2px solid #ffffff !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  #stealth-fallback-panel,
+  #stealth-fallback-panel *,
+  #stealth-fallback-panel::before,
+  #stealth-fallback-panel::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
