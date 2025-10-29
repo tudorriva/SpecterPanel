@@ -1,7 +1,8 @@
 <div align="center">
 
 # SpecterPanel
-<img width="1024" height="1024" alt="SpecterPanelLogo" src="https://github.com/user-attachments/assets/0985a7f7-dbcc-475b-9333-6ac17da2c1c6" />
+<img width="800" height="308" alt="rsz_specterpanellogo" src="https://github.com/user-attachments/assets/9b8e1d30-2fcf-4da0-a19d-24c9aa013e63" />
+
 
 *Stealth Web Overlay Toolkit for Intelligent Content Extraction*
 
