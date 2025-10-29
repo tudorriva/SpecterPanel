@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Stealth Injector",
-  "version": "1.0",
-  "description": "Bypass CSP and inject UI anywhere",
+  "name": "SpecterPanel",
+  "version": "1.1.0",
+  "description": "Inject a persistent floating panel into webpages for content extraction and AI analysis",
   
   "permissions": [
     "activeTab",
@@ -17,7 +17,7 @@
   
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Stealth Injector"
+    "default_title": "SpecterPanel"
   },
   
   "icons": {

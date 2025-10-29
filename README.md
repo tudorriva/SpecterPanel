@@ -1,242 +1,482 @@
-# Stealth Web Injector# 🥷 Stealth Web Injector
+# Stealth Web Injector# Stealth Web Injector# 🥷 Stealth Web Injector
 
 
 
-A Chrome extension that injects a persistent floating UI into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.A Chrome extension designed to inject minimal, persistent floating UI elements into any webpage while avoiding detection, including heavily protected pages with strict Content Security Policies (CSP).
+A Chrome extension that injects a persistent floating UI into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.
 
 
 
-## Features## 🎯 Features
+## Quick LinksA Chrome extension that injects a persistent floating UI into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.A Chrome extension designed to inject minimal, persistent floating UI elements into any webpage while avoiding detection, including heavily protected pages with strict Content Security Policies (CSP).
 
 
 
-- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **CSP Bypass**: Works on pages with strict Content Security Policies including nonce requirements
+- **Installation**: See [docs/INSTALL.md](docs/INSTALL.md)
 
-- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts- **Shadow DOM Isolation**: Uses closed shadow DOM for maximum isolation from page scripts
+- **Architecture**: See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
-- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements using `toDataURL()`
+- **API Reference**: See [docs/API.md](docs/API.md)## Features## 🎯 Features
 
-- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing- **AI-Powered Responses**: Ask questions and get intelligent AI responses 
+- **Contributing**: See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
-- **OCR Integration**: Optional OCR processing for extracted canvas images- **OCR Integration**: Optional OCR processing for extracted canvas images
+- **Changelog**: See [CHANGELOG.md](CHANGELOG.md)
+
+
+
+## Features- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **CSP Bypass**: Works on pages with strict Content Security Policies including nonce requirements
+
+
+
+- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts- **Shadow DOM Isolation**: Uses closed shadow DOM for maximum isolation from page scripts
+
+- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts
+
+- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements using `toDataURL()`
+
+- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing
+
+- **OCR Integration**: Optional OCR processing for extracted canvas images- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing- **AI-Powered Responses**: Ask questions and get intelligent AI responses 
+
+- **Local Backend**: Communicates with local Python server (Flask-based)
+
+- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **OCR Integration**: Optional OCR processing for extracted canvas images- **OCR Integration**: Optional OCR processing for extracted canvas images
+
+- **All Frames Support**: Works in main frame and all iframes
 
 - **Local Backend**: Communicates with local Python server (Flask-based)- **Local Backend**: Communicates with local Python server for data processing
 
+## Repository Structure
+
 - **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **Stealth Operation**: Avoids triggering `visibilitychange`, `blur`, or `focus` events
-
-- **All Frames Support**: Works in main frame and all iframes- **No Focus Stealing**: Does not interfere with page focus or user interactions
-
-- **All Frames Support**: Works in main frame and all iframes (`all_frames: true`)
-
-## Repository Structure- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks
-
-- **Graceful Degradation**: Falls back to simpler injection methods if advanced techniques fail
 
 ```
 
-stealth-ai-chrome/## 📁 Project Structure
+stealth-ai-chrome/- **All Frames Support**: Works in main frame and all iframes- **No Focus Stealing**: Does not interfere with page focus or user interactions
 
-├── background.js              # Service worker for extension logic
+├── src/
 
-├── content.js                 # Content script with Shadow DOM injection```
+│   ├── extension/          # Chrome extension files (load this into Chrome)- **All Frames Support**: Works in main frame and all iframes (`all_frames: true`)
 
-├── popup.html                 # Extension popup interface├── manifest.json          # Extension manifest (Manifest V3)
+│   │   ├── manifest.json   # Extension manifest V3
 
-├── popup.js                   # Popup functionality├── background.js          # Service worker for injection logic
+│   │   ├── background.js   # Service worker## Repository Structure- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks
 
-├── panel.html                 # Injected panel template├── content.js            # Content script with Shadow DOM injection
+│   │   ├── content.js      # Content script
 
-├── panel.js                   # Panel functionality├── popup.html            # Extension popup interface
+│   │   ├── popup.html/js   # Extension popup- **Graceful Degradation**: Falls back to simpler injection methods if advanced techniques fail
 
-├── panel.css                  # Panel styles├── popup.js              # Popup functionality
+│   │   └── panel.html/js/css # Injected panel UI
 
-├── blindat.html               # Test page (protected exam simulation)├── panel.css             # Styles for injected panel
+│   └── backend/            # Python Flask backend```
 
-├── manifest.json              # Extension manifest (Manifest V3)├── example_server.py     # Python backend server
+│       ├── example_server.py  # Main server
+
+│       ├── test_server.py     # Environment testsstealth-ai-chrome/## 📁 Project Structure
+
+│       └── requirements.txt   # Dependencies
+
+├── scripts/                # Build and setup scripts├── background.js              # Service worker for extension logic
+
+│   ├── install.bat         # Setup script
+
+│   ├── build.bat           # Build release package├── content.js                 # Content script with Shadow DOM injection```
+
+│   ├── release.bat         # Prepare GitHub release
+
+│   └── start_ai_server.bat # Start backend├── popup.html                 # Extension popup interface├── manifest.json          # Extension manifest (Manifest V3)
+
+├── tests/                  # Test pages and data
+
+│   ├── blindat.html        # Protected exam test page├── popup.js                   # Popup functionality├── background.js          # Service worker for injection logic
+
+│   └── blindat.txt         # Test data
+
+├── docs/                   # Comprehensive documentation├── panel.html                 # Injected panel template├── content.js            # Content script with Shadow DOM injection
+
+│   ├── INSTALL.md          # Installation guide
+
+│   ├── ARCHITECTURE.md     # System design├── panel.js                   # Panel functionality├── popup.html            # Extension popup interface
+
+│   ├── API.md              # Backend API reference
+
+│   └── CONTRIBUTING.md     # Contributing guidelines├── panel.css                  # Panel styles├── popup.js              # Popup functionality
+
+├── dist/                   # Release packages
+
+├── CHANGELOG.md            # Version history├── blindat.html               # Test page (protected exam simulation)├── panel.css             # Styles for injected panel
+
+├── README.md               # This file
+
+└── .git/                   # Git repository├── manifest.json              # Extension manifest (Manifest V3)├── example_server.py     # Python backend server
+
+```
 
 ├── install.bat                # Windows installation script├── requirements.txt      # Python dependencies
 
+## Quick Start
+
 ├── reorganize_repo.bat        # Script to organize backend into server/ folder├── install.bat          # Windows installation script
+
+### 1. Load the Extension
 
 ├── server/                    # Backend server (optional structure)└── README.md            # This file
 
-│   ├── example_server.py      # Python Flask backend```
+```
 
-│   ├── test_server.py         # Server environment verification
+1. Open Chrome and go to chrome://extensions/│   ├── example_server.py      # Python Flask backend```
 
-│   ├── requirements.txt       # Python dependencies## 🚀 Quick Start
+2. Enable "Developer mode" (top right)
 
-│   └── start_ai_server.bat    # Server startup script
+3. Click "Load unpacked"│   ├── test_server.py         # Server environment verification
 
-└── README.md                  # This file### 1. Install the Chrome Extension
+4. Select the src/extension/ folder
+
+5. Extension appears in your extensions list│   ├── requirements.txt       # Python dependencies## 🚀 Quick Start
 
 ```
 
-1. Open Chrome and navigate to `chrome://extensions/`
+│   └── start_ai_server.bat    # Server startup script
 
-## Quick Start2. Enable "Developer mode" in the top right
+### 2. Setup Backend (Optional)
 
-3. Click "Load unpacked" and select this folder
-
-### 1. Install the Chrome Extension4. The extension should now appear in your extensions list
-
-
-
-1. Open Chrome and navigate to `chrome://extensions/`### 2. Set Up the Backend (Optional but Recommended for AI)
-
-2. Enable "Developer mode" (toggle in top-right corner)
-
-3. Click "Load unpacked" and select this repository folderThe extension includes a Python backend with AI capabilities:
-
-4. The extension will appear in your extensions list
+└── README.md                  # This file### 1. Install the Chrome Extension
 
 ```cmd
 
-### 2. Set Up the Backend (Optional)# Install Python dependencies
+cd src/backend```
 
 pip install -r requirements.txt
 
-To use AI and OCR features, set up the Python backend:
+python example_server.py1. Open Chrome and navigate to `chrome://extensions/`
 
-# Run the backend server
+```
 
-```cmdpython example_server.py
+## Quick Start2. Enable "Developer mode" in the top right
 
-cd server```
+Server will run on `http://localhost:8000`
 
-pip install -r requirements.txt
+3. Click "Load unpacked" and select this folder
 
-python example_server.pyThe server will start on `http://localhost:8000` and provide:
+### 3. Use the Extension
 
-```- **AI Question Answering**: Ask questions and get intelligent responses
+### 1. Install the Chrome Extension4. The extension should now appear in your extensions list
 
-- **OCR Processing**: Extract text from canvas images
+1. Click extension icon
 
-The server will start on `http://localhost:8000`.- **Data Analysis**: Analyze and process extracted content
+2. Click "Inject Panel"
 
-- **Multiple AI Backends**: Supports Ollama (local) and OpenAI API
+3. Use floating UI to extract canvas content or ask questions
 
-### 3. Using the Extension
+4. Results display in the panel1. Open Chrome and navigate to `chrome://extensions/`### 2. Set Up the Backend (Optional but Recommended for AI)
 
-### 3. AI Configuration Options
 
-1. Click the extension icon to open the popup
+
+## Installation Guide2. Enable "Developer mode" (toggle in top-right corner)
+
+
+
+For detailed installation instructions, see [docs/INSTALL.md](docs/INSTALL.md)3. Click "Load unpacked" and select this repository folderThe extension includes a Python backend with AI capabilities:
+
+
+
+This includes:4. The extension will appear in your extensions list
+
+- Prerequisites (Python, Chrome version)
+
+- Step-by-step installation```cmd
+
+- AI backend configuration (Ollama, OpenAI)
+
+- Troubleshooting### 2. Set Up the Backend (Optional)# Install Python dependencies
+
+
+
+## System Architecturepip install -r requirements.txt
+
+
+
+For detailed system design, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)To use AI and OCR features, set up the Python backend:
+
+
+
+Includes:# Run the backend server
+
+- Component overview
+
+- Data flow diagrams```cmdpython example_server.py
+
+- Communication protocols
+
+- Security architecturecd server```
+
+
+
+## Backend APIpip install -r requirements.txt
+
+
+
+For API documentation, see [docs/API.md](docs/API.md)python example_server.pyThe server will start on `http://localhost:8000` and provide:
+
+
+
+Available endpoints:```- **AI Question Answering**: Ask questions and get intelligent responses
+
+- `GET /health` - Health check
+
+- `POST /process` - Process text- **OCR Processing**: Extract text from canvas images
+
+- `POST /canvas` - Process canvas images
+
+- `POST /analyze` - Advanced analysisThe server will start on `http://localhost:8000`.- **Data Analysis**: Analyze and process extracted content
+
+
+
+## Build and Release- **Multiple AI Backends**: Supports Ollama (local) and OpenAI API
+
+
+
+### Build a Release Package### 3. Using the Extension
+
+
+
+```cmd### 3. AI Configuration Options
+
+cd scripts
+
+build.bat1. Click the extension icon to open the popup
+
+```
 
 2. Click "Inject Panel" to inject the floating UI into the page#### Option A: Local AI with Ollama (Recommended)
 
-3. Use the panel to:1. Install Ollama from https://ollama.ai
+This creates:
 
-   - Extract canvas content (sent to backend for OCR)2. Pull a model: `ollama pull llama3.2:3b`
+- Organized package in `dist/stealth-injector-VERSION/`3. Use the panel to:1. Install Ollama from https://ollama.ai
 
-   - Ask questions and receive AI responses3. Start Ollama (it runs automatically)
+- ZIP archive ready for distribution
 
-   - View and copy results4. The server will automatically detect and use Ollama
+- Installation script included   - Extract canvas content (sent to backend for OCR)2. Pull a model: `ollama pull llama3.2:3b`
 
 
+
+### Create a GitHub Release   - Ask questions and receive AI responses3. Start Ollama (it runs automatically)
+
+
+
+```cmd   - View and copy results4. The server will automatically detect and use Ollama
+
+cd scripts
+
+release.bat
+
+```
 
 ## Backend Setup#### Option B: OpenAI API
 
-1. Get an API key from OpenAI
+This prepares:
 
-### Prerequisites2. Edit `example_server.py` and set:
+- Version bump1. Get an API key from OpenAI
 
-   ```python
+- Release notes template
 
-- Python 3.8 or higher   AI_CONFIG = {
-
-- pip package manager       'use_openai': True,
-
-       'openai_api_key': 'your-api-key-here',
-
-### Installation       ...
-
-   }
-
-```cmd   ```
-
-cd server
-
-pip install -r requirements.txt#### Option C: Intelligent Fallbacks
-
-```If no AI backend is configured, the server provides intelligent pattern-based responses for common programming questions.
+- GitHub release instructions### Prerequisites2. Edit `example_server.py` and set:
 
 
+
+## Security and Privacy   ```python
+
+
+
+### What This Extension Does- Python 3.8 or higher   AI_CONFIG = {
+
+- Injects UI into webpages
+
+- Extracts visible canvas content- pip package manager       'use_openai': True,
+
+- Sends data to local backend
+
+- Operates with user control       'openai_api_key': 'your-api-key-here',
+
+
+
+### What This Extension Does NOT Do### Installation       ...
+
+- Access sensitive user data
+
+- Modify webpage functionality   }
+
+- Transmit data to external servers (localhost only)
+
+- Interfere with page security```cmd   ```
+
+
+
+### Responsible Usecd server
+
+Designed for:
+
+- Educational purposespip install -r requirements.txt#### Option C: Intelligent Fallbacks
+
+- Accessibility improvements
+
+- Content analysis and research```If no AI backend is configured, the server provides intelligent pattern-based responses for common programming questions.
+
+- Development and testing
+
+
+
+**Users are responsible for ensuring compliance with applicable laws and terms of service.**
 
 ### Running the ServerThe server will start on `http://localhost:8000`
 
+## Contributing
 
 
-```cmd### 3. Using the Extension
 
-python example_server.py
+We welcome contributions. See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for:
+
+- Development setup```cmd### 3. Using the Extension
+
+- Coding standards
+
+- PR processpython example_server.py
+
+- Testing guidelines
 
 ```1. Click the extension icon to open the popup
 
+## Testing
+
 2. Click "Inject Panel" to inject the floating UI into the current page
 
-The server provides the following endpoints:3. **Type your question** in the text area (e.g., "What is JavaScript?" or "How do I create a function?")
+Test files are in `tests/`:
+
+- `blindat.html` - Protected exam simulationThe server provides the following endpoints:3. **Type your question** in the text area (e.g., "What is JavaScript?" or "How do I create a function?")
+
+- `blindat.txt` - Test content
 
 4. Click **"Send to Backend"** to get an AI-powered response
 
+Load the extension and test on these pages to verify functionality on heavily protected sites.
+
 | Endpoint | Method | Purpose |5. Use "Extract Canvas" to extract data from canvas elements and get OCR processing
+
+## Troubleshooting
 
 |----------|--------|---------|6. Copy text or responses using the "Copy Text" button
 
-| `/health` | GET | Health check and server status |
+### Extension Not Loading
 
-| `/process` | POST | Process text data |### 4. AI Features Usage
+- Check that you're loading `src/extension/` folder| `/health` | GET | Health check and server status |
 
-| `/canvas` | POST | Process canvas image data |
+- Verify `manifest.json` is present
 
-| `/analyze` | POST | Advanced content analysis |**Ask Questions:**
+- Reload in `chrome://extensions/`| `/process` | POST | Process text data |### 4. AI Features Usage
+
+
+
+### Backend Connection Issues| `/canvas` | POST | Process canvas image data |
+
+- Verify backend running on `localhost:8000`
+
+- Test with `curl http://localhost:8000/health`| `/analyze` | POST | Advanced content analysis |**Ask Questions:**
+
+- Check firewall settings
 
 - Type any question like "What is the DOM?" or "Explain CSS flexbox"
 
-### AI Configuration- Get intelligent responses based on your backend configuration
+### Python Errors
 
-- Works with programming questions, general knowledge, and technical concepts
+- Ensure Python 3.8+ installed### AI Configuration- Get intelligent responses based on your backend configuration
 
-#### Option A: Local Ollama (Recommended)
+- Run `pip install --upgrade pip`
 
-1. Download and install [Ollama](https://ollama.ai)**Canvas OCR:**
+- Reinstall dependencies- Works with programming questions, general knowledge, and technical concepts
 
-2. Pull a model: `ollama pull llama2`- Click "Extract Canvas" to extract text from images on the page
+
+
+## Development#### Option A: Local Ollama (Recommended)
+
+
+
+### Requirements1. Download and install [Ollama](https://ollama.ai)**Canvas OCR:**
+
+- Chrome 88+
+
+- Python 3.8+2. Pull a model: `ollama pull llama2`- Click "Extract Canvas" to extract text from images on the page
+
+- pip package manager
 
 3. Ollama will automatically start; the server will detect and use it- The backend will process the images and extract readable text
 
-- Useful for capturing text from screenshots, charts, or image-based content
+### Setup Development Environment
 
-#### Option B: OpenAI API
+```cmd- Useful for capturing text from screenshots, charts, or image-based content
+
+# Load extension in Chrome
+
+1. Go to chrome://extensions/#### Option B: OpenAI API
+
+2. Load unpacked -> select src/extension/
 
 1. Obtain an API key from [OpenAI](https://openai.com)**Smart Detection:**
 
-2. Edit `server/example_server.py` and set your API key- The system automatically detects if your input is a question and routes it to the appropriate AI endpoint
+# Setup backend
 
-3. Restart the server- Provides confidence scores and source information for responses
+cd src/backend2. Edit `server/example_server.py` and set your API key- The system automatically detects if your input is a question and routes it to the appropriate AI endpoint
+
+pip install -r requirements.txt
+
+python example_server.py3. Restart the server- Provides confidence scores and source information for responses
+
+```
 
 
 
-#### Option C: Fallback Mode## 🔧 How It Works
+### Making Changes
+
+- Extension: Edit files in `src/extension/`, reload in Chrome#### Option C: Fallback Mode## 🔧 How It Works
+
+- Backend: Edit files in `src/backend/`, restart server
 
 If no AI backend is available, the server provides rule-based responses.
 
+## License
+
 ### CSP Bypass Techniques
+
+This project is provided for educational and research purposes.
 
 ## File Organization
 
+## Disclaimer
+
 The extension uses multiple techniques to bypass Content Security Policies:
+
+This extension is provided as-is. Users are responsible for ensuring compliance with applicable laws and terms of service. The authors are not responsible for misuse.
 
 ### Extension Files (Root Directory)
 
+## Support
+
 These files should remain in the repository root:1. **Content Script Injection**: Runs at `document_start` with high privileges
 
-- `background.js` - Service worker2. **Shadow DOM**: Creates isolated DOM tree that CSP cannot affect
+- Check [docs/](docs/) for detailed guides
 
-- `content.js` - Content script3. **chrome.scripting API**: Uses Chrome's scripting API as fallback
+- Review [CHANGELOG.md](CHANGELOG.md) for updates- `background.js` - Service worker2. **Shadow DOM**: Creates isolated DOM tree that CSP cannot affect
 
-- `popup.html`, `popup.js` - Popup UI4. **Inline Styles**: Uses `style.cssText` to avoid external CSS restrictions
+- Check browser console for error messages
 
-- `panel.html`, `panel.js`, `panel.css` - Injected panel UI5. **No External Resources**: All code is self-contained
+- Test pages in [tests/](tests/) for examples- `content.js` - Content script3. **chrome.scripting API**: Uses Chrome's scripting API as fallback
+
+
+
+---- `popup.html`, `popup.js` - Popup UI4. **Inline Styles**: Uses `style.cssText` to avoid external CSS restrictions
+
+
+
+**Version**: 1.1.0  - `panel.html`, `panel.js`, `panel.css` - Injected panel UI5. **No External Resources**: All code is self-contained
+
+**Last Updated**: 2024-10-29
 
 - `manifest.json` - Extension manifest
 
