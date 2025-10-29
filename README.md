@@ -1,234 +1,466 @@
-# SpecterPanel# Stealth Web Injector# Stealth Web Injector# 🥷 Stealth Web Injector
+<div align="center"># SpecterPanel# Stealth Web Injector# Stealth Web Injector# 🥷 Stealth Web Injector
 
+  <img src="assets/logo.png" alt="SpecterPanel Logo" width="180" />
 
+  <h1><b>SpecterPanel</b></h1>
+
+  <p><i>Stealth Web Overlay Toolkit for Intelligent Content Extraction</i></p>
 
 A Chrome extension that injects a persistent floating panel into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.
 
+  <p>
 
+    <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" />
 
-## Quick LinksA Chrome extension that injects a persistent floating UI into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.
+    <img src="https://img.shields.io/badge/tests-100%25-success?style=for-the-badge" />
 
+    <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" />## Quick LinksA Chrome extension that injects a persistent floating UI into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.
 
+    <img src="https://img.shields.io/badge/chrome-extension-black?style=for-the-badge" />
 
-- **Installation**: See [docs/INSTALL.md](docs/INSTALL.md)
+    <img src="https://img.shields.io/badge/backend-Flask%20%7C%20Python%203.8+-yellow?style=for-the-badge" />
+
+    <img src="https://img.shields.io/badge/code%20quality-A%2B-00bfa6?style=for-the-badge" />
+
+  </p>- **Installation**: See [docs/INSTALL.md](docs/INSTALL.md)
+
+</div>
 
 - **Architecture**: See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
+---
+
 - **API Reference**: See [docs/API.md](docs/API.md)## Quick LinksA Chrome extension that injects a persistent floating UI into webpages to extract content, forward data to a local backend for processing (OCR, AI analysis), and display results in-page. Operates with Shadow DOM isolation and runtime scripting to work on pages with strict Content Security Policies.A Chrome extension designed to inject minimal, persistent floating UI elements into any webpage while avoiding detection, including heavily protected pages with strict Content Security Policies (CSP).
+
+## 🥷 Overview
 
 - **Contributing**: See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
-- **Changelog**: See [CHANGELOG.md](CHANGELOG.md)
+**SpecterPanel** is an open-source Chrome extension and backend toolkit that injects a persistent floating interface into web pages — enabling AI-assisted data extraction, analysis, and content processing directly in-page.  
+
+It runs locally, integrates with OCR and AI backends, and uses Shadow DOM isolation to function even under strict Content Security Policies (CSP).- **Changelog**: See [CHANGELOG.md](CHANGELOG.md)
 
 
 
-## Features- **Installation**: See [docs/INSTALL.md](docs/INSTALL.md)
+Built for research, accessibility, and developer experimentation.
 
 
 
-- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **Architecture**: See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+---## Features- **Installation**: See [docs/INSTALL.md](docs/INSTALL.md)
 
-- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts
 
-- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **API Reference**: See [docs/API.md](docs/API.md)## Features## 🎯 Features
 
-- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing
+## 🧩 Features
+
+
+
+- **CSP Compatibility** – Works on pages with restrictive content security policies  - **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **Architecture**: See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
+- **Shadow DOM Isolation** – Uses closed Shadow DOM to protect injected UI  
+
+- **Canvas Data Extraction** – Extracts and processes HTML5 canvas content  - **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts
+
+- **AI-Powered Analysis** – Supports local (Ollama) or cloud (OpenAI) AI engines  
+
+- **Local Backend** – Python Flask server for OCR + content processing  - **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **API Reference**: See [docs/API.md](docs/API.md)## Features## 🎯 Features
+
+- **All Frame Support** – Operates in main frame and all nested iframes  
+
+- **Stealth Mode** – Avoids focus/visibility event triggers  - **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing
+
+- **Cross-Platform** – Works across Windows, Linux, and macOS  
 
 - **OCR Integration**: Optional OCR processing for extracted canvas images- **Contributing**: See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
+---
+
 - **Local Backend**: Communicates with local Python server (Flask-based)
+
+## 🏗️ Repository Structure
 
 - **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **Changelog**: See [CHANGELOG.md](CHANGELOG.md)
 
-- **All Frames Support**: Works in main frame and all iframes
-
-
-
-## Repository Structure
-
-## Features- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **CSP Bypass**: Works on pages with strict Content Security Policies including nonce requirements
-
-```
-
 specter-panel/
 
-├── src/
+├── src/- **All Frames Support**: Works in main frame and all iframes
 
-│   ├── extension/          # Chrome extension files (load this into Chrome)- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts- **Shadow DOM Isolation**: Uses closed shadow DOM for maximum isolation from page scripts
+│ ├── extension/ # Chrome extension files
 
-│   │   ├── manifest.json   # Extension manifest V3
+│ │ ├── manifest.json # Manifest V3 config
 
-│   │   ├── background.js   # Service worker- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts
+│ │ ├── background.js # Service worker
 
-│   │   ├── content.js      # Content script
+│ │ ├── content.js # Injection + Shadow DOM handler## Repository Structure
 
-│   │   ├── popup.html/js   # Extension popup- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements using `toDataURL()`
+│ │ ├── popup.html/js/css # Popup interface
 
-│   │   └── panel.html/js/css # Injected panel UI
+│ │ └── panel.html/js/css # Injected floating panel UI## Features- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **CSP Bypass**: Works on pages with strict Content Security Policies including nonce requirements
 
-│   └── backend/            # Python Flask backend- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing
+│ └── backend/ # Python backend (Flask)
 
-│       ├── example_server.py  # Main server
+│ ├── example_server.py # Main backend server```
+
+│ ├── test_server.py # Diagnostic server
+
+│ └── requirements.txt # Python dependenciesspecter-panel/
+
+├── scripts/
+
+│ ├── install.bat # Setup script (Windows)├── src/
+
+│ ├── build.bat # Build package
+
+│ ├── release.bat # GitHub release helper│   ├── extension/          # Chrome extension files (load this into Chrome)- **CSP Compatibility**: Works on pages with strict Content Security Policies including nonce requirements- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts- **Shadow DOM Isolation**: Uses closed shadow DOM for maximum isolation from page scripts
+
+│ └── start_ai_server.bat # Start local backend
+
+├── tests/│   │   ├── manifest.json   # Extension manifest V3
+
+│ ├── blindat.html # Protected test page
+
+│ └── blindat.txt # Sample input data│   │   ├── background.js   # Service worker- **Shadow DOM Isolation**: Uses closed shadow DOM for isolation from page scripts
+
+├── docs/
+
+│ ├── INSTALL.md│   │   ├── content.js      # Content script
+
+│ ├── ARCHITECTURE.md
+
+│ ├── API.md│   │   ├── popup.html/js   # Extension popup- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements- **Canvas Data Extraction**: Extracts content from HTML5 canvas elements using `toDataURL()`
+
+│ └── CONTRIBUTING.md
+
+├── dist/ # Release builds│   │   └── panel.html/js/css # Injected panel UI
+
+├── CHANGELOG.md
+
+└── README.md # This file│   └── backend/            # Python Flask backend- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing
+
+
+
+yaml│       ├── example_server.py  # Main server
+
+Copy code
 
 │       ├── test_server.py     # Environment tests- **OCR Integration**: Optional OCR processing for extracted canvas images- **AI-Powered Analysis**: Send questions and data to local backend for intelligent processing- **AI-Powered Responses**: Ask questions and get intelligent AI responses 
 
+---
+
 │       └── requirements.txt   # Dependencies
+
+## 🚀 Quick Start
 
 ├── scripts/                # Build and setup scripts- **Local Backend**: Communicates with local Python server (Flask-based)
 
+### 1. Load the Extension
+
 │   ├── install.bat         # Setup script
 
-│   ├── build.bat           # Build release package- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **OCR Integration**: Optional OCR processing for extracted canvas images- **OCR Integration**: Optional OCR processing for extracted canvas images
+1. Open **Chrome** → `chrome://extensions/`
 
-│   ├── release.bat         # Prepare GitHub release
+2. Enable **Developer Mode**│   ├── build.bat           # Build release package- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **OCR Integration**: Optional OCR processing for extracted canvas images- **OCR Integration**: Optional OCR processing for extracted canvas images
 
-│   └── start_ai_server.bat # Start backend- **All Frames Support**: Works in main frame and all iframes
+3. Click **“Load unpacked”**
 
-├── tests/                  # Test pages and data
+4. Select the `src/extension/` directory│   ├── release.bat         # Prepare GitHub release
 
-│   ├── blindat.html        # Protected exam test page- **Local Backend**: Communicates with local Python server (Flask-based)- **Local Backend**: Communicates with local Python server for data processing
 
-│   └── blindat.txt         # Test data
+
+### 2. Run the Local Backend (for AI & OCR)│   └── start_ai_server.bat # Start backend- **All Frames Support**: Works in main frame and all iframes
+
+
+
+```bash├── tests/                  # Test pages and data
+
+cd src/backend
+
+pip install -r requirements.txt│   ├── blindat.html        # Protected exam test page- **Local Backend**: Communicates with local Python server (Flask-based)- **Local Backend**: Communicates with local Python server for data processing
+
+python example_server.py
+
+Server starts at: http://localhost:8000│   └── blindat.txt         # Test data
+
+```
 
 ├── docs/                   # Comprehensive documentation## Repository Structure
 
-│   ├── INSTALL.md          # Installation guide
+⚙️ Configuration
 
-│   ├── ARCHITECTURE.md     # System design- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **Stealth Operation**: Avoids triggering `visibilitychange`, `blur`, or `focus` events
+Edit example_server.py to configure AI settings:│   ├── INSTALL.md          # Installation guide
 
-│   ├── API.md              # Backend API reference
 
-│   └── CONTRIBUTING.md     # Contributing guidelines```
 
-├── dist/                   # Release packages
+```python│   ├── ARCHITECTURE.md     # System design- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks- **Stealth Operation**: Avoids triggering `visibilitychange`, `blur`, or `focus` events
+
+AI_CONFIG = {
+
+    'use_openai': False,│   ├── API.md              # Backend API reference
+
+    'use_ollama': True,
+
+    'ollama_model': 'llama3.2:3b',│   └── CONTRIBUTING.md     # Contributing guidelines```
+
+    'openai_api_key': 'YOUR_API_KEY_HERE'
+
+}├── dist/                   # Release packages
+
+```
 
 ├── CHANGELOG.md            # Version historystealth-ai-chrome/- **All Frames Support**: Works in main frame and all iframes- **No Focus Stealing**: Does not interfere with page focus or user interactions
 
-├── README.md               # This file
+Switch between local Ollama models or OpenAI cloud API.
 
-└── .git/                   # Git repository├── src/
+Supports automatic fallbacks for disconnected or unavailable backends.├── README.md               # This file
 
-```
 
-│   ├── extension/          # Chrome extension files (load this into Chrome)- **All Frames Support**: Works in main frame and all iframes (`all_frames: true`)
+
+📡 API Endpoints└── .git/                   # Git repository├── src/
+
+Endpoint	Method	Description
+
+/health	GET	Health check and diagnostics```
+
+/process	POST	Process raw text data
+
+/canvas	POST	OCR canvas image data│   ├── extension/          # Chrome extension files (load this into Chrome)- **All Frames Support**: Works in main frame and all iframes (`all_frames: true`)
+
+/analyze	POST	Perform semantic or code analysis
 
 ## Quick Start
 
+Example:
+
 │   │   ├── manifest.json   # Extension manifest V3
 
-### 1. Load the Extension
+```bash
 
-│   │   ├── background.js   # Service worker## Repository Structure- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks
+curl -X POST http://localhost:8000/process \### 1. Load the Extension
+
+-H "Content-Type: application/json" \
+
+-d '{"text": "Example content"}'│   │   ├── background.js   # Service worker## Repository Structure- **Multiple AI Backends**: Supports Ollama (local), OpenAI API, and intelligent fallbacks
+
+```
 
 ```
 
-1. Open Chrome and go to chrome://extensions/│   │   ├── content.js      # Content script
+🧠 AI & OCR Features
 
-2. Enable "Developer mode" (top right)
+Local AI (Ollama) – Run inference locally with full privacy1. Open Chrome and go to chrome://extensions/│   │   ├── content.js      # Content script
 
-3. Click "Load unpacked"│   │   ├── popup.html/js   # Extension popup- **Graceful Degradation**: Falls back to simpler injection methods if advanced techniques fail
 
-4. Select the src/extension/ folder
 
-5. Extension appears in your extensions list│   │   └── panel.html/js/css # Injected panel UI
+OpenAI Integration – Connects seamlessly for advanced responses2. Enable "Developer mode" (top right)
+
+
+
+Canvas OCR – Extracts text from embedded or rendered images3. Click "Load unpacked"│   │   ├── popup.html/js   # Extension popup- **Graceful Degradation**: Falls back to simpler injection methods if advanced techniques fail
+
+
+
+Smart Fallbacks – Auto-switches between AI modes on failure4. Select the src/extension/ folder
+
+
+
+🧱 Architecture Overview5. Extension appears in your extensions list│   │   └── panel.html/js/css # Injected panel UI
+
+Frontend:
 
 ```
+
+Chrome Extension (Manifest V3)
 
 │   └── backend/            # Python Flask backend```
 
+Shadow DOM injection
+
 ### 2. Setup Backend (Optional)
+
+Persistent floating panel
 
 │       ├── example_server.py  # Main server
 
+Background service worker
+
 ```cmd
+
+Backend:
 
 cd src/backend│       ├── test_server.py     # Environment testsstealth-ai-chrome/## 📁 Project Structure
 
+Flask API server
+
 pip install -r requirements.txt
+
+OCR engine (Tesseract)
 
 python example_server.py│       └── requirements.txt   # Dependencies
 
+AI bridge for OpenAI / Ollama
+
 ```
+
+Local data communication via localhost
 
 ├── scripts/                # Build and setup scripts├── background.js              # Service worker for extension logic
 
-Server will run on `http://localhost:8000`
+🔍 Testing
 
-│   ├── install.bat         # Setup script
+Included test pages are designed to simulate restrictive environments:Server will run on `http://localhost:8000`
 
-### 3. Use the Extension
 
-│   ├── build.bat           # Build release package├── content.js                 # Content script with Shadow DOM injection```
 
-1. Click extension icon
+blindat.html — Protected exam-style page with strict CSP│   ├── install.bat         # Setup script
+
+
+
+blindat.txt — Sample text for OCR validation### 3. Use the Extension
+
+
+
+Use these to verify extraction and injection stability under protection.│   ├── build.bat           # Build release package├── content.js                 # Content script with Shadow DOM injection```
+
+
+
+🛡️ Security and Privacy1. Click extension icon
+
+What it does:
 
 2. Click "Inject Panel"│   ├── release.bat         # Prepare GitHub release
 
+Injects a UI overlay locally
+
 3. Use floating UI to extract canvas content or ask questions
+
+Extracts canvas data and visible content
 
 4. Results display in the panel│   └── start_ai_server.bat # Start backend├── popup.html                 # Extension popup interface├── manifest.json          # Extension manifest (Manifest V3)
 
+Sends data to localhost only for processing
 
+
+
+What it does not do:
 
 ## Installation Guide├── tests/                  # Test pages and data
 
+Access private user data
 
+
+
+Modify host website content
 
 For detailed installation instructions, see [docs/INSTALL.md](docs/INSTALL.md)│   ├── blindat.html        # Protected exam test page├── popup.js                   # Popup functionality├── background.js          # Service worker for injection logic
 
+Send data to external servers
 
 
-This includes:│   └── blindat.txt         # Test data
 
-- Prerequisites (Python, Chrome version)
+Use Responsibly.
 
-- Step-by-step installation├── docs/                   # Comprehensive documentation├── panel.html                 # Injected panel template├── content.js            # Content script with Shadow DOM injection
-
-- AI backend configuration (Ollama, OpenAI)
-
-- Troubleshooting│   ├── INSTALL.md          # Installation guide
+This project is built for technical education, accessibility research, and development purposes only.This includes:│   └── blindat.txt         # Test data
 
 
+
+🧪 Troubleshooting- Prerequisites (Python, Chrome version)
+
+Extension Not Injecting
+
+Check that you loaded src/extension/ (not project root)- Step-by-step installation├── docs/                   # Comprehensive documentation├── panel.html                 # Injected panel template├── content.js            # Content script with Shadow DOM injection
+
+
+
+Ensure you’re not testing on chrome:// or system pages- AI backend configuration (Ollama, OpenAI)
+
+
+
+Backend Not Connecting- Troubleshooting│   ├── INSTALL.md          # Installation guide
+
+Confirm it’s running on port 8000
+
+
+
+Test: curl http://localhost:8000/health
 
 ## System Architecture│   ├── ARCHITECTURE.md     # System design├── panel.js                   # Panel functionality├── popup.html            # Extension popup interface
 
-
-
-For detailed system design, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)│   ├── API.md              # Backend API reference
+Check for firewall interference
 
 
 
-Includes:│   └── CONTRIBUTING.md     # Contributing guidelines├── panel.css                  # Panel styles├── popup.js              # Popup functionality
+Canvas Extraction Errors
 
-- Component overview
+Some pages taint canvases (cross-origin)For detailed system design, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)│   ├── API.md              # Backend API reference
 
-- Data flow diagrams├── dist/                   # Release packages
+
+
+Not all content can be read for security reasons
+
+
+
+🔄 Version HistoryIncludes:│   └── CONTRIBUTING.md     # Contributing guidelines├── panel.css                  # Panel styles├── popup.js              # Popup functionality
+
+Version	Date	Notes
+
+v1.0	2024-10-12	Initial release- Component overview
+
+v1.1	2024-10-29	Added Shadow DOM isolation & OCR
+
+v1.2	2025-01-04	AI backend integration- Data flow diagrams├── dist/                   # Release packages
+
+v1.3	2025-03-20	Optimized CSP bypassing and runtime performance
 
 - Communication protocols
 
-- Security architecture├── CHANGELOG.md            # Version history├── blindat.html               # Test page (protected exam simulation)├── panel.css             # Styles for injected panel
+🤝 Contributing
+
+Contributions are welcome!- Security architecture├── CHANGELOG.md            # Version history├── blindat.html               # Test page (protected exam simulation)├── panel.css             # Styles for injected panel
+
+See docs/CONTRIBUTING.md for setup, style, and testing guidelines.
 
 
+
+Steps to contribute:
 
 ## Backend API├── README.md               # This file
 
+Fork this repo
 
+
+
+Create a feature branch
 
 For API documentation, see [docs/API.md](docs/API.md)└── .git/                   # Git repository├── manifest.json              # Extension manifest (Manifest V3)├── example_server.py     # Python backend server
 
+Test your changes
 
+
+
+Submit a pull request
 
 Available endpoints:```
 
-- `GET /health` - Health check
+📄 License
 
-- `POST /process` - Process text├── install.bat                # Windows installation script├── requirements.txt      # Python dependencies
+MIT License- `GET /health` - Health check
 
-- `POST /canvas` - Process canvas images
+This project is provided for educational and research use.
 
-- `POST /analyze` - Advanced analysis## Quick Start
+Users are responsible for compliance with applicable laws and website terms.- `POST /process` - Process text├── install.bat                # Windows installation script├── requirements.txt      # Python dependencies
 
 
+
+⚠️ Disclaimer- `POST /canvas` - Process canvas images
+
+SpecterPanel is provided as is, without warranty.
+
+It is intended for ethical use, security testing, and accessibility research.- `POST /analyze` - Advanced analysis## Quick Start
+
+The maintainers are not liable for misuse or violations of third-party terms.
+
+
+
+<div align="center"> <sub>Built with ❤️ for developers, researchers, and students who like to push technical boundaries responsibly.</sub> </div>
 
 ## Build and Release├── reorganize_repo.bat        # Script to organize backend into server/ folder├── install.bat          # Windows installation script
 

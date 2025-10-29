@@ -55,3 +55,4 @@ dist/*.zip
 !dist/.gitkeep
 *.log
 temp_version.txt
+SpecterPanelLogo.png
