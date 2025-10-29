@@ -2,7 +2,7 @@
     
 <img width="800" height="308" alt="rsz_specterpanellogo-removebg-preview" src="https://github.com/user-attachments/assets/bdfffbc2-92e8-4299-8d30-2a318b07c7a5" />
     
-*Stealth Web Overlay Toolkit for Intelligent Content Extraction*
+*Stealth Web AI powered extension to help you everywhere you need*
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
 ![Tests](https://img.shields.io/badge/tests-100%25-success?style=for-the-badge)
