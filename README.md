@@ -1,9 +1,5 @@
 <div align="center">
-
-# SpecterPanel
 <img width="800" height="308" alt="rsz_specterpanellogo" src="https://github.com/user-attachments/assets/9b8e1d30-2fcf-4da0-a19d-24c9aa013e63" />
-
-
 *Stealth Web Overlay Toolkit for Intelligent Content Extraction*
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
