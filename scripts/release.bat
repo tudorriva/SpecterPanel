@@ -1,12 +1,12 @@
 @echo off
-REM Release helper script for Stealth Injector
+REM Release helper script for SpecterPanel
 REM This script helps prepare a release on GitHub
 
 setlocal enabledelayedexpansion
 
 echo.
 echo =====================================================
-echo  Stealth Injector - Release Helper
+echo  SpecterPanel - Release Helper
 echo =====================================================
 echo.
 

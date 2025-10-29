@@ -1,4 +1,4 @@
-# Installation Guide
+# SpecterPanel - Installation Guide
 
 ## Prerequisites
 
@@ -117,7 +117,7 @@ start_ai_server.bat
 ## File Structure
 
 ```
-stealth-ai-chrome/
+specter-panel/
 ├── src/
 │   ├── extension/          # Chrome extension files
 │   │   ├── manifest.json
@@ -162,7 +162,7 @@ After installation:
 
 ### Chrome Extension
 1. Go to `chrome://extensions/`
-2. Find "Stealth Injector"
+2. Find "SpecterPanel"
 3. Click the trash icon
 
 ### Backend Server

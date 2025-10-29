@@ -1,4 +1,4 @@
-# Architecture Overview
+# SpecterPanel - Architecture Overview
 
 ## System Components
 
@@ -143,7 +143,7 @@ Request → Validation → Processing → AI Query → Response
 ## Folder Structure Rationale
 
 ```
-stealth-ai-chrome/
+specter-panel/
 ├── src/              # Source code
 │   ├── extension/    # Chrome extension (loadable)
 │   └── backend/      # Python backend server

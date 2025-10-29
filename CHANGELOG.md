@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Stealth Injector will be documented in this file.
+All notable changes to SpecterPanel will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -23,8 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `CHANGELOG.md` - Version history (this file)
 
 - Professional README
-  - Removed emoji-based formatting
-  - Clearer structure and organization
+  - Clear structure and organization
   - Practical setup instructions
   - Security and privacy guidelines
   - Troubleshooting section
@@ -60,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-10-15
 
 ### Added
-- Initial release of Stealth Injector Chrome extension
+- Initial release of SpecterPanel Chrome extension
 - Shadow DOM-based UI injection
 - Canvas content extraction
 - Backend AI integration (Ollama, OpenAI)

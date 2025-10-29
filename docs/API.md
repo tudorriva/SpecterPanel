@@ -1,8 +1,8 @@
-# Backend API Reference
+# SpecterPanel - Backend API Reference
 
 ## Overview
 
-The Stealth Injector backend provides REST endpoints for data processing and AI integration. The server runs on `http://localhost:8000` by default.
+The SpecterPanel backend provides REST endpoints for data processing and AI integration. The server runs on `http://localhost:8000` by default.
 
 ## Base URL
 

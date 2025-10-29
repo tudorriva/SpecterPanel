@@ -1,5 +1,5 @@
 @echo off
-echo Starting Stealth Web Injector Backend Server
+echo Starting SpecterPanel Backend Server
 echo.
 
 echo Checking Python installation...

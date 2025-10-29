@@ -1,7 +1,7 @@
 @echo off
 echo.
 echo =====================================================
-echo  Stealth Web Injector - Installation Script
+echo  SpecterPanel - Installation Script
 echo =====================================================
 echo.
 
@@ -77,7 +77,7 @@ echo 1. Open Google Chrome
 echo 2. Navigate to: chrome://extensions/
 echo 3. Enable "Developer mode" (toggle in top-right)
 echo 4. Click "Load unpacked"
-echo 5. Select this folder: %~dp0
+echo 5. Select the src\extension\ folder
 echo 6. The extension should appear in your extensions list
 echo.
 echo =====================================================

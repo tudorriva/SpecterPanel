@@ -1,12 +1,12 @@
 @echo off
-REM Build script for Stealth Injector Chrome Extension
+REM Build script for SpecterPanel Chrome Extension
 REM Creates a release package ready for distribution
 
 setlocal enabledelayedexpansion
 
 echo.
 echo =====================================================
-echo  Stealth Injector - Build Script
+echo  SpecterPanel - Build Script
 echo =====================================================
 echo.
 
@@ -30,14 +30,14 @@ echo.
 REM Create dist folder structure
 echo [STEP 1] Creating distribution directories...
 if not exist dist mkdir dist
-if not exist "dist\stealth-injector-!BUILD_VERSION!" mkdir "dist\stealth-injector-!BUILD_VERSION!"
+if not exist "dist\specter-panel-!BUILD_VERSION!" mkdir "dist\specter-panel-!BUILD_VERSION!"
 
 echo [DONE] Distribution directories created
 echo.
 
 REM Copy extension files
 echo [STEP 2] Copying extension files...
-xcopy /E /I /Y src\extension "dist\stealth-injector-!BUILD_VERSION!\extension" >nul
+xcopy /E /I /Y src\extension "dist\specter-panel-!BUILD_VERSION!\extension" >nul
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to copy extension files
     pause
@@ -48,7 +48,7 @@ echo.
 
 REM Copy backend files
 echo [STEP 3] Copying backend files...
-xcopy /E /I /Y src\backend "dist\stealth-injector-!BUILD_VERSION!\backend" >nul
+xcopy /E /I /Y src\backend "dist\specter-panel-!BUILD_VERSION!\backend" >nul
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to copy backend files
     pause
@@ -59,10 +59,10 @@ echo.
 
 REM Copy documentation
 echo [STEP 4] Copying documentation...
-xcopy /E /I /Y docs "dist\stealth-injector-!BUILD_VERSION!\docs" >nul
-copy README.md "dist\stealth-injector-!BUILD_VERSION!\" >nul
-copy CHANGELOG.md "dist\stealth-injector-!BUILD_VERSION!\" >nul
-copy LICENSE "dist\stealth-injector-!BUILD_VERSION!\" >nul 2>&1
+xcopy /E /I /Y docs "dist\specter-panel-!BUILD_VERSION!\docs" >nul
+copy README.md "dist\specter-panel-!BUILD_VERSION!\" >nul
+copy CHANGELOG.md "dist\specter-panel-!BUILD_VERSION!\" >nul
+copy LICENSE "dist\specter-panel-!BUILD_VERSION!\" >nul 2>&1
 echo [DONE] Documentation copied
 echo.
 
@@ -70,7 +70,7 @@ REM Create installation script
 echo [STEP 5] Creating installation script...
 (
     echo @echo off
-    echo REM Stealth Injector Installation Script - v!BUILD_VERSION!
+    echo REM SpecterPanel Installation Script - v!BUILD_VERSION!
     echo REM This script sets up the extension and backend
     echo.
     echo echo Installation directory: %%~dp0
@@ -91,7 +91,7 @@ echo [STEP 5] Creating installation script...
     echo echo  4. Select the "extension" folder
     echo echo.
     echo pause
-) > "dist\stealth-injector-!BUILD_VERSION!\INSTALL.bat"
+) > "dist\specter-panel-!BUILD_VERSION!\INSTALL.bat"
 
 echo [DONE] Installation script created
 echo.
@@ -99,7 +99,7 @@ echo.
 REM Create README for release
 echo [STEP 6] Creating release README...
 (
-    echo # Stealth Injector v!BUILD_VERSION!
+    echo # SpecterPanel v!BUILD_VERSION!
     echo.
     echo ## Quick Start
     echo.
@@ -126,19 +126,19 @@ echo [STEP 6] Creating release README...
     echo 4. docs/API.md - Backend API reference
     echo 5. docs/CONTRIBUTING.md - How to contribute
     echo.
-) > "dist\stealth-injector-!BUILD_VERSION!\RELEASE_README.txt"
+) > "dist\specter-panel-!BUILD_VERSION!\RELEASE_README.txt"
 
 echo [DONE] Release README created
 echo.
 
 REM Create ZIP archive (using PowerShell)
 echo [STEP 7] Creating ZIP archive...
-powershell -Command "& {Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::CreateFromDirectory('dist\stealth-injector-!BUILD_VERSION!', 'dist\stealth-injector-!BUILD_VERSION!.zip')}"
+powershell -Command "& {Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::CreateFromDirectory('dist\specter-panel-!BUILD_VERSION!', 'dist\specter-panel-!BUILD_VERSION!.zip')}"
 
-if exist "dist\stealth-injector-!BUILD_VERSION!.zip" (
+if exist "dist\specter-panel-!BUILD_VERSION!.zip" (
     echo [DONE] ZIP archive created
 ) else (
-    echo [WARNING] ZIP archive creation failed. Folder is available at dist\stealth-injector-!BUILD_VERSION!\
+    echo [WARNING] ZIP archive creation failed. Folder is available at dist\specter-panel-!BUILD_VERSION!\
 )
 
 echo.
@@ -146,8 +146,8 @@ echo =====================================================
 echo  Build Complete
 echo =====================================================
 echo.
-echo Build output: dist\stealth-injector-!BUILD_VERSION!
-echo Archive: dist\stealth-injector-!BUILD_VERSION!.zip
+echo Build output: dist\specter-panel-!BUILD_VERSION!
+echo Archive: dist\specter-panel-!BUILD_VERSION!.zip
 echo.
 echo Next steps:
 echo  1. Test the extension on various websites
