@@ -9,7 +9,7 @@ REM Check if Python is installed
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo [ERROR] Python is not installed or not in PATH
-    echo Please install Python 3.7+ from https://python.org
+    echo Please install Python 3.8+ from https://python.org
     echo.
     pause
     exit /b 1
@@ -34,7 +34,15 @@ echo.
 REM Install Python dependencies
 echo [STEP 1] Installing Python dependencies...
 echo.
-pip install -r requirements.txt
+
+if exist server\requirements.txt (
+    cd server
+    pip install -r requirements.txt
+    cd ..
+) else (
+    pip install -r requirements.txt
+)
+
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to install Python dependencies
     echo.
@@ -83,11 +91,17 @@ if /i "%start_server%"=="y" (
     echo [INFO] Starting backend server on http://localhost:8000
     echo [INFO] Press Ctrl+C to stop the server
     echo.
-    python example_server.py
+    if exist server\example_server.py (
+        cd server
+        python example_server.py
+        cd ..
+    ) else (
+        python example_server.py
+    )
 ) else (
     echo.
     echo [INFO] Backend server not started
-    echo To start it later, run: python example_server.py
+    echo To start it later, run: python server\example_server.py
 )
 
 echo.
@@ -96,10 +110,11 @@ echo  Installation Complete!
 echo =====================================================
 echo.
 echo Extension files are ready in: %~dp0
+echo Backend files are in: %~dp0server
 echo.
 echo Next steps:
 echo 1. Load the extension in Chrome (see instructions above)
-echo 2. Start the backend server: python example_server.py
+echo 2. Start the backend server: python server\example_server.py
 echo 3. Visit any webpage and click the extension icon
 echo 4. Click "Inject Panel" to test the injection
 echo.
