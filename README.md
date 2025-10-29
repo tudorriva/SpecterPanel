@@ -1,6 +1,6 @@
 <div align="center">
     
-<img width="800" height="308" alt="rsz_specterpanellogo" src="https://github.com/user-attachments/assets/9b8e1d30-2fcf-4da0-a19d-24c9aa013e63" />
+<img width="800" height="308" alt="rsz_specterpanellogo-removebg-preview" src="https://github.com/user-attachments/assets/bdfffbc2-92e8-4299-8d30-2a318b07c7a5" />
     
 *Stealth Web Overlay Toolkit for Intelligent Content Extraction*
 
